@@ -29,7 +29,7 @@ body h1 {
 .user-input-section {
   display:inline-block;
   height: 50%;
-  width:83%;
+  width:100%;
   text-align: center;
   background-color: #E5F3F2;
   margin: 18px auto;
