@@ -1,7 +1,31 @@
+
+/******************
+    GENERAL
+******************/
+
+*:focus{
+  outline: none;
+}
+
 body {
   height: 100vh;
   font-family:400 20px 'Open Sans', sans-serif;
 }
+
+/******************
+    LOGO
+******************/
+
+body h1 {
+  color:#00A79D;
+  font-family:700 35px 'Roboto Slab', serif;
+  margin: 15px auto;
+}
+
+
+/******************
+    INPUT SECTION
+******************/
 
 .user-input-section {
   display:inline-block;
@@ -48,7 +72,6 @@ span{
   width: 25%;
   background-color: #00A79D;
   border: none;
-  button: active;
   color: #FFFFFF;
   margin: 15px auto;
   outline: none;
@@ -56,4 +79,56 @@ span{
 
 .save-btn:hover {
   background-color: #045E55;
+}
+
+/******************
+    IDEA SECTION
+******************/
+
+.idea * {
+  margin: 0 0 15px 0;
+}
+
+.idea {
+  position: relative;
+  border-bottom: 2px #d1d3d4 solid;
+  margin: 18px auto;
+  width: 83%;
+}
+
+.search-input {
+  margin: 19px auto;
+  display: block;
+  padding: 5px;
+}
+
+.rating {
+  display: inline-block;
+  align-self: center;
+}
+
+/******buttons******/
+
+.up-vote-btn, .down-vote-btn, .delete-btn {
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border: none;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: url(../icons/delete.svg);
+}
+
+.up-vote-btn{
+  background-image: url(../icons/upvote.svg);
+}
+
+.down-vote-btn {
+  background-image: url(../icons/downvote.svg);
+
 }
