@@ -13,6 +13,13 @@ function prepend(idea) {
   );
 }
 
+function Idea(titleInput, bodyInput){
+  this.title = titleInput
+  this.body = bodyInput
+  this.quality = "swill"  || quality //need to research and add switch case
+  this.id = Date.now();
+}
+
 $(document).ready(function() {
   for(var i =0; i < localStorage.length; i++){
     parsedArray.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
@@ -22,18 +29,9 @@ $(document).ready(function() {
 }
 })
 
-
-function Idea(titleInput, bodyInput){
-  this.title = titleInput
-  this.body = bodyInput
-  this.quality = "swill"  || quality //need to research and add switch case
-  this.id = Date.now();
-}
-
 $('.save-btn').on('click', function () {
   var idea = new Idea($('.title-user-input').val(), $('.body-user-input').val());
-  var stringifiedIdea = JSON.stringify(idea);
-  localStorage.setItem(idea.id, stringifiedIdea);
+  localStorage.setItem(idea.id, JSON.stringify(idea));
   prepend(idea);
 })
 
