@@ -16,7 +16,6 @@ function prepend(idea) {
 function clearInputs(){
   $('.title-user-input').val('');
   $('.body-user-input').val('');
-  console.log('hi');
 }
 
 function Idea(titleInput, bodyInput){
@@ -51,21 +50,17 @@ $('.idea-storage-list').on('click', '.delete-btn', function(){
 
 $('.search-input').on('keyup', function(){
   var searchVal = $('.search-input').val()
-  var articleTitle = $('.title').text()
-  var matchIdeaValue = searchVal.match(articleTitle)
-  console.log(articleTitle);
-  console.log(matchIdeaValue);
-  $('.title').map(function () {
-    console.log($('.title'));
-    if (articleTitle.indexOf(searchVal) > -1) {
-      console.log($(this).title)
+  $.each($('.idea'), function(index, articleElement) {
+    if ($(articleElement).children("h2").text().indexOf(searchVal) < 0) {
+      console.log($(articleElement).children("h2").text());
+      $(articleElement).hide()
     }
   })
+})
 
-  // else {
-  //   $('.title').parent().toggle()
-  // }
-  // console.log($(".title"))
+function deleteIdea(titles) {
+  parsedArray[i].title.push
+}
+
 
   //compare whatever is in the search input to the content within the idea storage list section.  hide the elements that do not match
-})
