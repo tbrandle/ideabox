@@ -1,8 +1,14 @@
-retrievedIdea();
-// var ideaArray = retrievedIdea().map(function() {
-//   return parsedIdea;
-// })
+var objectArray = []
 
+
+$(document).ready(function() {
+  for(var i =0; i < localStorage.length; i++){
+    objectArray.push(localStorage.getItem(localStorage.key(i)));
+  }
+  parsedArray = objectArray.map(function(val, i) {
+    return (JSON.parse(objectArray[i]));
+  })
+})
 
 function Idea(titleInput, bodyInput){
   this.title = titleInput
@@ -11,13 +17,11 @@ function Idea(titleInput, bodyInput){
   this.id = Date.now();
 }
 
-function retrievedIdea() {
-  for(var i =0; i < localStorage.length; i++){
-    var retrievedObject = localStorage.getItem(localStorage.key(i));
-    var parsedIdea = JSON.parse(retrievedObject);
-    return parsedIdea;
-  }
-}
+// function retrievedIdea() {
+  // for(var i =0; i < localStorage.length; i++){
+    // return parsedIdea;
+  // }
+
 
 $('.save-btn').on('click', function () {
   var titleInput = $('.title-user-input').val();
