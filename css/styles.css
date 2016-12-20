@@ -11,6 +11,8 @@ body {
   font-family:'Open Sans', sans-serif;
 }
 
+
+
 /******************
     LOGO
 ******************/
@@ -49,12 +51,11 @@ body h1 {
   border: 1px #D1D3D4 solid;
 }
 
-
 .body-user-input{
   padding: 5px 0 40px 5px;
 }
 
-span{
+span {
   color:#6D6E71;
 }
 
