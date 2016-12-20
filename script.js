@@ -1,16 +1,12 @@
-var objectArray = []
-
+var parsedArray = []
 
 $(document).ready(function() {
   for(var i =0; i < localStorage.length; i++){
-    objectArray.push(localStorage.getItem(localStorage.key(i)));
+    parsedArray.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
   }
-  parsedArray = objectArray.map(function(val, i) {
-    return (JSON.parse(objectArray[i]));
-  })
   for(var i=0; i< parsedArray.length; i++){
   $('.idea-storage-list').prepend(
-    `<article class="idea">
+    `<article id="${parsedArray[i].id}" class="idea">
       <h2>${parsedArray[i].title}</h2>
       <input class="delete-btn" type="submit" value="" src="icons/delete.svg">
       <p class="idea-description">${parsedArray[i].body}</p>
@@ -18,7 +14,8 @@ $(document).ready(function() {
       <button class="down-vote-btn rating"type="button" name="button"></button>
       <p class="rating">Quality: ${parsedArray[i].quality}</p>
     </article>`
-  )}
+  )
+}
 })
 
 function Idea(titleInput, bodyInput){
@@ -28,26 +25,18 @@ function Idea(titleInput, bodyInput){
   this.id = Date.now();
 }
 
-// function retrievedIdea() {
-  // for(var i =0; i < localStorage.length; i++){
-    // return parsedIdea;
-  // }
-
-
 $('.save-btn').on('click', function () {
-  var titleInput = $('.title-user-input').val();
-  var bodyInput = $('.body-user-input').val();
-  var idea = new Idea(titleInput, bodyInput);
+  var idea = new Idea($('.title-user-input').val(), $('.body-user-input').val());
   var stringifiedIdea = JSON.stringify(idea);
   localStorage.setItem(idea.id, stringifiedIdea);
   $('.idea-storage-list').prepend(
-    `<article class="idea">
-      <h2>${titleInput}</h2>
+    `<article id="${idea.id}" class="idea">
+      <h2>${idea.title}</h2>
       <input class="delete-btn" type="submit" value="" src="icons/delete.svg">
-      <p class="idea-description">${bodyInput}</p>
+      <p class="idea-description">${idea.body}</p>
       <button class="up-vote-btn rating" type="button" name="button"></button>
       <button class="down-vote-btn rating"type="button" name="button"></button>
-      <p class="rating">Quality: swill</p>
+      <p class="rating">Quality: ${idea.quality}</p>
     </article>`
   )
   clearInputs();
@@ -55,10 +44,10 @@ $('.save-btn').on('click', function () {
 
 $('.idea-storage-list').on('click', '.delete-btn', function(){
   $(this).parent().remove();
-}
+  var id = $(this).parent().attr("id")
+  localStorage.removeItem(id);
+  }
 )
-
-// function clearFields() {
 
 function clearInputs(){
   $('.title-user-input').val('');
@@ -66,11 +55,3 @@ function clearInputs(){
   console.log('hi');
 };
 
-// function clearFields(){
-//   var titleInput = $('.title-user-input').val();
-//   var bodyInput = $('.body-user-input').val();
-//   var clear= "";
-//   $("titleInput").text(clear)
-//   $("bodyInput").text(clear)
-//   console.log("")
-// }
