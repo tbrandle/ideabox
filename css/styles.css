@@ -95,7 +95,9 @@ span{
 
 /******buttons******/
 
-.up-vote-btn, .down-vote-btn, .delete-btn {
+.up-vote-btn,
+.down-vote-btn,
+.delete-btn {
   background-repeat: no-repeat;
   height: 30px;
   width: 30px;
@@ -110,11 +112,20 @@ span{
   background-image: url(../icons/delete.svg);
 }
 
-.up-vote-btn{
+.delete-btn:hover {
+  background-image: url(../icons/delete-hover.svg);
+}
+
+.up-vote-btn {
   background-image: url(../icons/upvote.svg);
+}
+.up-vote-btn:hover {
+  background-image: url(../icons/upvote-hover.svg);
 }
 
 .down-vote-btn {
   background-image: url(../icons/downvote.svg);
-
+}
+.down-vote-btn:hover {
+  background-image: url(../icons/downvote-hover.svg);
 }
