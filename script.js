@@ -50,10 +50,27 @@ $('.save-btn').on('click', function () {
       <p class="rating">Quality: swill</p>
     </article>`
   )
-
+  clearInputs();
 })
 
 $('.idea-storage-list').on('click', '.delete-btn', function(){
   $(this).parent().remove();
 }
 )
+
+// function clearFields() {
+
+function clearInputs(){
+  $('.title-user-input').val('');
+  $('.body-user-input').val('');
+  console.log('hi');
+};
+
+// function clearFields(){
+//   var titleInput = $('.title-user-input').val();
+//   var bodyInput = $('.body-user-input').val();
+//   var clear= "";
+//   $("titleInput").text(clear)
+//   $("bodyInput").text(clear)
+//   console.log("")
+// }
