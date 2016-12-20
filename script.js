@@ -8,6 +8,17 @@ $(document).ready(function() {
   parsedArray = objectArray.map(function(val, i) {
     return (JSON.parse(objectArray[i]));
   })
+  for(var i=0; i< parsedArray.length; i++){
+  $('.idea-storage-list').prepend(
+    `<article class="idea">
+      <h2>${parsedArray[i].title}</h2>
+      <input class="delete-btn" type="submit" value="" src="icons/delete.svg">
+      <p class="idea-description">${parsedArray[i].body}</p>
+      <button class="up-vote-btn rating" type="button" name="button"></button>
+      <button class="down-vote-btn rating"type="button" name="button"></button>
+      <p class="rating">Quality: ${parsedArray[i].quality}</p>
+    </article>`
+  )}
 })
 
 function Idea(titleInput, bodyInput){
@@ -29,8 +40,6 @@ $('.save-btn').on('click', function () {
   var idea = new Idea(titleInput, bodyInput);
   var stringifiedIdea = JSON.stringify(idea);
   localStorage.setItem(idea.id, stringifiedIdea);
-  console.log(idea);
-  console.log(titleInput);
   $('.idea-storage-list').prepend(
     `<article class="idea">
       <h2>${titleInput}</h2>
@@ -43,12 +52,6 @@ $('.save-btn').on('click', function () {
   )
 
 })
-
-  // retrievedIdea = localStorage.getItem();
-  // var parsedIdea = JSON.parse(retrievedIdea)
-  // console.log(parsedIdea);
-// })
-
 
 $('.idea-storage-list').on('click', '.delete-btn', function(){
   $(this).parent().remove();
