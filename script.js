@@ -13,6 +13,12 @@ function prepend(idea) {
   );
 }
 
+function clearInputs(){
+  $('.title-user-input').val('');
+  $('.body-user-input').val('');
+  console.log('hi');
+}
+
 function Idea(titleInput, bodyInput){
   this.title = titleInput
   this.body = bodyInput
@@ -33,6 +39,7 @@ $('.save-btn').on('click', function () {
   var idea = new Idea($('.title-user-input').val(), $('.body-user-input').val());
   localStorage.setItem(idea.id, JSON.stringify(idea));
   prepend(idea);
+  clearInputs();
 })
 
 $('.idea-storage-list').on('click', '.delete-btn', function(){
