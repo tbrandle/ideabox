@@ -39,6 +39,7 @@ $('.save-btn').on('click', function () {
       <p class="rating">Quality: ${idea.quality}</p>
     </article>`
   )
+  clearInputs();
 })
 
 $('.idea-storage-list').on('click', '.delete-btn', function(){
@@ -47,3 +48,10 @@ $('.idea-storage-list').on('click', '.delete-btn', function(){
   localStorage.removeItem(id);
   }
 )
+
+function clearInputs(){
+  $('.title-user-input').val('');
+  $('.body-user-input').val('');
+  console.log('hi');
+};
+
