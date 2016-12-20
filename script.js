@@ -3,7 +3,7 @@ var parsedArray = []
 function prepend(idea) {
   $('.idea-storage-list').prepend(
     `<article id="${idea.id}" class="idea">
-    <h2>${idea.title}</h2>
+    <h2 class="title">${idea.title}</h2>
     <input class="delete-btn" type="submit" value="" src="icons/delete.svg">
     <p class="idea-description">${idea.body}</p>
     <button class="up-vote-btn rating" type="button" name="button"></button>
@@ -41,3 +41,24 @@ $('.idea-storage-list').on('click', '.delete-btn', function(){
   localStorage.removeItem(id);
   }
 )
+
+$('.search-input').on('keyup', function(){
+  var searchVal = $('.search-input').val()
+  var articleTitle = $('.title').text()
+  var matchIdeaValue = searchVal.match(articleTitle)
+  console.log(articleTitle);
+  console.log(matchIdeaValue);
+  $('.title').map(function () {
+    console.log($('.title'));
+    if (articleTitle.indexOf(searchVal) > -1) {
+      console.log($(this).title)
+    }
+  })
+
+  // else {
+  //   $('.title').parent().toggle()
+  // }
+  // console.log($(".title"))
+
+  //compare whatever is in the search input to the content within the idea storage list section.  hide the elements that do not match
+})
