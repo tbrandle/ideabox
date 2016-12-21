@@ -7,8 +7,14 @@
   outline: none;
 }
 
-body {
+body,
+input,
+button {
   font-family:'Open Sans', sans-serif;
+}
+
+button {
+  cursor: pointer;
 }
 
 /*********************************
@@ -36,7 +42,7 @@ body {
   background-color: #E5F3F2;
 }
 
-.input{
+.input {
   display: block;
   max-width: 800px;
   width: 88%;
@@ -47,20 +53,19 @@ body {
   text-align: left;
 }
 
-.body-user-input{
+.body-user-input {
   padding: 5px 0 40px 5px;
 }
 
      /******buttons******/
 
-.save-btn{
+.save-btn {
   display: block;
   max-width: 800px;
   width: 88%;
   background-color: #00A79D;
   border: none;
   color: #FFFFFF;
-  font-family: 'Open Sans', sans-serif;
   margin: 15px auto;
   outline: none;
   padding: 9px;
@@ -73,7 +78,7 @@ body {
 }
 
 /*********************************
-        IDEA SECTION
+      IDEA SECTION - BOTTOM
 *********************************/
 
 .idea-article * {
@@ -110,21 +115,18 @@ body {
   color: #6d6e71;
 }
 
+.rating-section {
+  display: inline-block;
+  align-self: center;
+}
     /******buttons******/
 
-.up-vote-btn,
-.down-vote-btn,
-.delete-btn {
+.idea-article-btns {
   height: 30px;
   width: 30px;
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
-}
-
-.rating {
-  display: inline-block;
-  align-self: center;
 }
 
 .delete-btn {

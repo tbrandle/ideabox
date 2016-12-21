@@ -12,11 +12,11 @@ function prepend(idea) {
   $('.idea-storage-list').prepend(
     `<article id="${idea.id}" class="idea-article">
     <input class="title" type="input" value="${idea.title}">
-    <input class="delete-btn" type="submit" value="" src="icons/delete.svg">
+    <button class="delete-btn idea-article-btns" type="button"></button>
     <textarea class="body" type="input">${idea.body}</textarea>
-    <button class="up-vote-btn rating" type="button" name="button"></button>
-    <button class="down-vote-btn rating"type="button" name="button"></button>
-    <p class="quality rating">quality: ${idea.quality}</p>
+    <button class="up-vote-btn idea-article-btns rating-section " type="button"></button>
+    <button class="down-vote-btn idea-article-btns rating-section" type="button"></button>
+    <p class="quality rating-section">quality: ${idea.quality}</p>
     </article>`
   );
 }
