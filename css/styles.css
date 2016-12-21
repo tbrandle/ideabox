@@ -1,7 +1,7 @@
 
-/******************
-    GENERAL
-******************/
+/*********************************
+            GENERAL
+*********************************/
 
 *:focus{
   outline: none;
@@ -11,31 +11,29 @@ body {
   font-family:'Open Sans', sans-serif;
 }
 
-/******************
-    LOGO
-******************/
+/*********************************
+            LOGO
+*********************************/
 
-body h1 {
+.logo {
   color:#00A79D;
-  font-family:700 35px 'Roboto Slab', serif;
+  font-family:'Roboto Slab', serif;
   margin: 15px auto;
 }
 
-/******************
-    INPUT SECTION
-******************/
+.logo-span {
+  color:#6D6E71;
+}
+
+/*********************************
+    USER INPUT SECTION - TOP
+*********************************/
 
 .user-input-section {
   display:inline-block;
   width:100%;
   text-align: center;
   background-color: #E5F3F2;
-}
-
-body h1 {
-  color:#00A79D;
-  font-family:'Roboto Slab', serif;
-  margin: 15px auto;
 }
 
 .input{
@@ -53,9 +51,7 @@ body h1 {
   padding: 5px 0 40px 5px;
 }
 
-span {
-  color:#6D6E71;
-}
+     /******buttons******/
 
 .save-btn{
   display: block;
@@ -70,25 +66,26 @@ span {
   padding: 9px;
 }
 
+     /******pseudo******/
+
 .save-btn:hover {
   background-color: #045E55;
 }
 
-/******************
-    IDEA SECTION
-******************/
+/*********************************
+        IDEA SECTION
+*********************************/
 
-.idea * {
+.idea-article * {
   margin: 0 0 15px 0;
 }
 
-.idea {
+.idea-article {
   position: relative;
   border-bottom: 2px #d1d3d4 solid;
   margin: 18px auto;
   max-width: 800px;
   width: 83%;
-
 }
 
 .title {
@@ -97,7 +94,7 @@ span {
   font-size: 25px;
 }
 
-.body{
+.body {
   display: block;
   height: 55px;
   width: 100%;
@@ -113,7 +110,7 @@ span {
   color: #6d6e71;
 }
 
-/******buttons******/
+    /******buttons******/
 
 .up-vote-btn,
 .down-vote-btn,
@@ -137,27 +134,31 @@ span {
   background-image: url(../icons/delete.svg);
 }
 
-.delete-btn:hover {
-  background-image: url(../icons/delete-hover.svg);
-}
-
 .up-vote-btn {
   background-image: url(../icons/upvote.svg);
-}
-.up-vote-btn:hover {
-  background-image: url(../icons/upvote-hover.svg);
 }
 
 .down-vote-btn {
   background-image: url(../icons/downvote.svg);
 }
+
+      /******pseudo******/
+
+.delete-btn:hover {
+  background-image: url(../icons/delete-hover.svg);
+}
+
+.up-vote-btn:hover {
+  background-image: url(../icons/upvote-hover.svg);
+}
+
 .down-vote-btn:hover {
   background-image: url(../icons/downvote-hover.svg);
 }
 
-/******************
-    MEDIA QUERIES
-******************/
+/*********************************
+        MEDIA QUERIES
+*********************************/
 
 @media (min-width: 750px) {
   .body-user-input{

@@ -1,1 +1,2 @@
-- delete object from local storage on the same session.  If you save an idea and delete it before reloading the page the it does not remove it from local storage.
+- How can we pass a $(this) value through a helper function?
+-  Can we pass a logical expression (+, -, =) through a function?
