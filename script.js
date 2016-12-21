@@ -5,10 +5,10 @@ function prepend(idea) {
     `<article id="${idea.id}" class="idea">
     <input class="title" type="input" value="${idea.title}">
     <input class="delete-btn" type="submit" value="" src="icons/delete.svg">
-    <input class="body" type="input" value="${idea.body}">
+    <textarea class="body" type="input">${idea.body}</textarea>
     <button class="up-vote-btn rating" type="button" name="button"></button>
     <button class="down-vote-btn rating"type="button" name="button"></button>
-    <p class="quality rating">Quality: ${idea.quality}</p>
+    <p class="quality rating">quality: ${idea.quality}</p>
     </article>`
   );
 }
@@ -62,16 +62,16 @@ $('.search-input').on('keyup', function(){
 function changeRating (idea, val) {
   if (idea.count <= 0) {
     idea.quality = "swill"
-    val.text('Quality: swill')
+    val.text('quality: swill')
     idea.count = 0;
   }
   else if (idea.count === 1) {
     idea.quality = "plausible"
-    val.text('Quality: plausible')
+    val.text('quality: plausible')
 
   } else if (idea.count >= 2) {
     idea.quality = "genius"
-    val.text("Quality: genius")
+    val.text("quality: genius")
     idea.count = 2;
   }
   localStorage.setItem(idea.id, JSON.stringify(idea));
@@ -92,7 +92,6 @@ $('.idea-storage-list').on('click', '.down-vote-btn', function(){
   var id = $(this).parent().attr("id")
   var idea = JSON.parse(localStorage.getItem(id))
   var thisIdea = $(this).siblings('.quality')
-
   idea.count -= 1;
   changeRating(idea, thisIdea)
   console.log(idea);
