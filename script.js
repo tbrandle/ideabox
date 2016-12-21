@@ -110,4 +110,5 @@ $('.idea-storage-list').on('blur', '.body', function() {
   var idea = JSON.parse(localStorage.getItem(id))
   idea.body = $(this).val()
   stringifyIdea(idea);
+
 })
