@@ -11,12 +11,12 @@ function Idea(titleInput, bodyInput){
 function prepend(idea) {
   $('.idea-storage-list').prepend(
     `<article id="${idea.id}" class="idea-article">
-    <input class="title" type="input" value="${idea.title}">
-    <button class="delete-btn idea-article-btns" type="button"></button>
-    <textarea class="body" type="input">${idea.body}</textarea>
-    <button class="up-vote-btn idea-article-btns rating-section " type="button"></button>
-    <button class="down-vote-btn idea-article-btns rating-section" type="button"></button>
-    <p class="quality rating-section">quality: ${idea.quality}</p>
+      <input class="title" type="input" value="${idea.title}">
+      <button class="delete-btn idea-article-btns" type="button"></button>
+      <textarea class="body" type="input">${idea.body}</textarea>
+      <button class="up-vote-btn idea-article-btns rating-section " type="button"></button>
+      <button class="down-vote-btn idea-article-btns rating-section" type="button"></button>
+      <p class="quality rating-section">quality: ${idea.quality}</p>
     </article>`
   );
 }
@@ -73,9 +73,11 @@ $('.idea-storage-list').on('click', '.delete-btn', function(){
 $('.search-input').on('keyup', function(){
   var searchVal = $('.search-input').val()
   $.each($('.idea-article'), function(index, articleElement) {
-    if ($(articleElement).children("h2").text().indexOf(searchVal) < 0) {
-      console.log($(articleElement).children("h2").text());
+    if ($(articleElement).children('.title').val().indexOf(searchVal) < 0) {
+      console.log($(articleElement).children('.title').val());
       $(articleElement).hide()
+    } else {
+      $(articleElement).show()
     }
   })
 })
