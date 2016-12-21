@@ -82,7 +82,6 @@ $('.idea-storage-list').on('click', '.up-vote-btn', function(){
   var id = $(this).parent().attr("id")
   var idea = JSON.parse(localStorage.getItem(id))
   var thisIdea = $(this).siblings('.quality')
-  // $(this).siblings('.quality').text('Quality: swill')
   idea.count += 1;
   changeRating(idea, thisIdea)
   console.log(idea);
@@ -100,4 +99,18 @@ $('.idea-storage-list').on('click', '.down-vote-btn', function(){
   console.log(idea.count);
 })
 
-  //compare whatever is in the search input to the content within the idea storage list section.  hide the elements that do not match
+$('.idea-storage-list').on('blur', '.title', function() {
+  var id = $(this).parent().attr("id")
+  var idea = JSON.parse(localStorage.getItem(id))
+  idea.title = $(this).val()
+  localStorage.setItem(idea.id, JSON.stringify(idea));
+  console.log($(this).val());
+})
+
+$('.idea-storage-list').on('blur', '.body', function() {
+  var id = $(this).parent().attr("id")
+  var idea = JSON.parse(localStorage.getItem(id))
+  idea.body = $(this).val()
+  localStorage.setItem(idea.id, JSON.stringify(idea));
+  console.log($(this).val());
+})
