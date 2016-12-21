@@ -75,7 +75,6 @@ function changeRating (idea, val) {
     idea.count = 2;
   }
   localStorage.setItem(idea.id, JSON.stringify(idea));
-  // console.log(val.text())
 }
 
 $('.idea-storage-list').on('click', '.up-vote-btn', function(){
@@ -84,8 +83,6 @@ $('.idea-storage-list').on('click', '.up-vote-btn', function(){
   var thisIdea = $(this).siblings('.quality')
   idea.count += 1;
   changeRating(idea, thisIdea)
-  console.log(idea);
-  console.log(idea.count);
 })
 
 $('.idea-storage-list').on('click', '.down-vote-btn', function(){
@@ -94,8 +91,6 @@ $('.idea-storage-list').on('click', '.down-vote-btn', function(){
   var thisIdea = $(this).siblings('.quality')
   idea.count -= 1;
   changeRating(idea, thisIdea)
-  console.log(idea);
-  console.log(idea.count);
 })
 
 $('.idea-storage-list').on('blur', '.title', function() {
@@ -103,7 +98,6 @@ $('.idea-storage-list').on('blur', '.title', function() {
   var idea = JSON.parse(localStorage.getItem(id))
   idea.title = $(this).val()
   localStorage.setItem(idea.id, JSON.stringify(idea));
-  console.log($(this).val());
 })
 
 $('.idea-storage-list').on('blur', '.body', function() {
@@ -111,5 +105,4 @@ $('.idea-storage-list').on('blur', '.body', function() {
   var idea = JSON.parse(localStorage.getItem(id))
   idea.body = $(this).val()
   localStorage.setItem(idea.id, JSON.stringify(idea));
-  console.log($(this).val());
 })
