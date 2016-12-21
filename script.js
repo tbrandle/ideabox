@@ -75,7 +75,7 @@ function changeRating (idea, val) {
     idea.count = 2;
   }
   localStorage.setItem(idea.id, JSON.stringify(idea));
-  console.log(val.text())
+  // console.log(val.text())
 }
 
 $('.idea-storage-list').on('click', '.up-vote-btn', function(){
