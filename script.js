@@ -3,12 +3,12 @@ var parsedArray = []
 function prepend(idea) {
   $('.idea-storage-list').prepend(
     `<article id="${idea.id}" class="idea">
-    <h2 class="title">${idea.title}</h2>
+    <input class="title" type="input" value="${idea.title}">
     <input class="delete-btn" type="submit" value="" src="icons/delete.svg">
-    <p class="idea-description">${idea.body}</p>
+    <input class="body" type="input" value="${idea.body}">
     <button class="up-vote-btn rating" type="button" name="button"></button>
     <button class="down-vote-btn rating"type="button" name="button"></button>
-    <p class="rating">Quality: ${idea.quality}</p>
+    <p class="quality rating">Quality: ${idea.quality}</p>
     </article>`
   );
 }
@@ -21,8 +21,9 @@ function clearInputs(){
 function Idea(titleInput, bodyInput){
   this.title = titleInput
   this.body = bodyInput
-  this.quality = "swill"  || quality //need to research and add switch case
+  this.quality = "swill"
   this.id = Date.now();
+  this.count = 0;
 }
 
 $(document).ready(function() {
@@ -58,9 +59,45 @@ $('.search-input').on('keyup', function(){
   })
 })
 
-function deleteIdea(titles) {
-  parsedArray[i].title.push
+function changeRating (idea, val) {
+  if (idea.count <= 0) {
+    idea.quality = "swill"
+    val.text('Quality: swill')
+    idea.count = 0;
+  }
+  else if (idea.count === 1) {
+    idea.quality = "plausible"
+    val.text('Quality: plausible')
+
+  } else if (idea.count >= 2) {
+    idea.quality = "genius"
+    val.text("Quality: genius")
+    idea.count = 2;
+  }
+  localStorage.setItem(idea.id, JSON.stringify(idea));
+  console.log(val.text())
 }
 
+$('.idea-storage-list').on('click', '.up-vote-btn', function(){
+  var id = $(this).parent().attr("id")
+  var idea = JSON.parse(localStorage.getItem(id))
+  var thisIdea = $(this).siblings('.quality')
+  // $(this).siblings('.quality').text('Quality: swill')
+  idea.count += 1;
+  changeRating(idea, thisIdea)
+  console.log(idea);
+  console.log(idea.count);
+})
+
+$('.idea-storage-list').on('click', '.down-vote-btn', function(){
+  var id = $(this).parent().attr("id")
+  var idea = JSON.parse(localStorage.getItem(id))
+  var thisIdea = $(this).siblings('.quality')
+
+  idea.count -= 1;
+  changeRating(idea, thisIdea)
+  console.log(idea);
+  console.log(idea.count);
+})
 
   //compare whatever is in the search input to the content within the idea storage list section.  hide the elements that do not match

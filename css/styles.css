@@ -11,8 +11,6 @@ body {
   font-family:'Open Sans', sans-serif;
 }
 
-
-
 /******************
     LOGO
 ******************/
@@ -22,7 +20,6 @@ body h1 {
   font-family:700 35px 'Roboto Slab', serif;
   margin: 15px auto;
 }
-
 
 /******************
     INPUT SECTION
@@ -89,9 +86,14 @@ span {
   width: 83%;
 }
 
-.rating {
-  display: inline-block;
-  align-self: center;
+.title {
+  border: none;
+  font-size: 25px;
+}
+
+.body{
+  border: none;
+  display: block;
 }
 
 /******buttons******/
@@ -104,6 +106,11 @@ span {
   width: 30px;
   background-color: transparent;
   border: none;
+}
+
+.rating {
+  display: inline-block;
+  align-self: center;
 }
 
 .delete-btn {
