@@ -31,7 +31,7 @@ $(document).ready(function() {
   }
   for(var i=0; i< parsedArray.length; i++){
       prepend(parsedArray[i]);
-}
+  }
 })
 
 $('.save-btn').on('click', function () {
@@ -52,8 +52,9 @@ $('.search-input').on('keyup', function(){
   var searchVal = $('.search-input').val()
   $.each($('.idea'), function(index, articleElement) {
     if ($(articleElement).children("h2").text().indexOf(searchVal) < 0) {
-      console.log($(articleElement).children("h2").text());
       $(articleElement).hide()
+    } else {
+      $(articleElement).show()
     }
   })
 })
@@ -61,6 +62,3 @@ $('.search-input').on('keyup', function(){
 function deleteIdea(titles) {
   parsedArray[i].title.push
 }
-
-
-  //compare whatever is in the search input to the content within the idea storage list section.  hide the elements that do not match
